@@ -1,0 +1,74 @@
+<div class="task-board">
+  <!-- Форма для добавления задачи -->
+  <mat-card class="task-form-card">
+    <app-task-form></app-task-form>
+  </mat-card>
+
+  <!-- Доска задач -->
+  <div class="task-board-content">
+    <h2>Task Board</h2>
+    <div class="task-columns">
+      <div class="task-column">
+        <h3>To Do</h3>
+        <ng-container *ngIf="(todoTasks$ | async)?.length; else noTasks">
+          <mat-card *ngFor="let task of (todoTasks$ | async)" class="task-card" [ngStyle]="{'border-left-color': getPriorityColor(task.priority)}">
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="warn" (click)="deleteTask(task.id)">Delete</button>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
+        <ng-template #noTasks>
+          <p class="no-tasks-message">No tasks available.</p>
+        </ng-template>
+      </div>
+
+      <!-- Колонка "In Progress" -->
+      <div class="task-column">
+        <h3>In Progress</h3>
+        <ng-container *ngIf="(inProgressTasks$ | async)?.length; else noTasks">
+          <mat-card *ngFor="let task of (inProgressTasks$ | async)" class="task-card" [ngStyle]="{'border-left-color': getPriorityColor(task.priority)}">
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="warn" (click)="deleteTask(task.id)">Delete</button>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
+        <ng-template #noTasks>
+          <p class="no-tasks-message">No tasks available.</p>
+        </ng-template>
+      </div>
+
+      <!-- Колонка "Done" -->
+      <div class="task-column">
+        <h3>Done</h3>
+        <ng-container *ngIf="(doneTasks$ | async)?.length; else noTasks">
+          <mat-card *ngFor="let task of (doneTasks$ | async)" class="task-card" [ngStyle]="{'border-left-color': getPriorityColor(task.priority)}">
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="warn" (click)="deleteTask(task.id)">Delete</button>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
+        <ng-template #noTasks>
+          <p class="no-tasks-message">No tasks available.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
