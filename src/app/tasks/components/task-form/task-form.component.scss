@@ -1,0 +1,35 @@
+.task-form {
+  display: flex;
+  align-items: center; /* Центрируем элементы формы */
+  gap: 16px; /* Отступы между элементами */
+}
+
+mat-form-field {
+  flex: 1; /* Поля занимают равное пространство */
+  min-width: 200px; /* Минимальная ширина */
+  height: auto; /* Высота подстраивается автоматически */
+}
+
+.mat-form-field-wrapper {
+  display: flex;
+  align-items: center; /* Центрируем содержимое */
+  height: 64px; /* Единая высота для всех полей */
+}
+
+textarea, input, mat-select {
+  height: 100%; /* Растягиваем до высоты контейнера */
+  line-height: 1.5; /* Межстрочный интервал */
+  font-size: 16px; /* Размер текста */
+  padding: 8px; /* Внутренние отступы для текста */
+  box-sizing: border-box;
+}
+
+button.task-submit {
+  height: 64px; /* Высота кнопки равна высоте полей */
+  min-width: 120px; /* Минимальная ширина кнопки */
+  font-size: 16px; /* Размер текста кнопки */
+  padding: 0 16px; /* Внутренние отступы */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрируем текст в кнопке */
+}

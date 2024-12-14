@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Высота страницы */
+}
+
+.task-board {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Заполняем доступное пространство */
+  overflow-y: auto; /* Включаем вертикальный скролл */
+  gap: 16px;
+  padding: 16px;
+  padding-bottom: 64px; /* Добавляем отступ снизу */
+}
+
+.task-form-card {
+  position: sticky; /* Фиксируем форму наверху */
+  top: 0; /* Привязываем к верхнему краю */
+  z-index: 10; /* Выше задач */
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-columns {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  min-height: 100%; /* Чтобы колонки занимали всю высоту */
+}
+
+.task-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  min-height: 200px;
+}
+
+.task-column h3 {
+  margin-top: 0;
+}
+
+.task-card {
+  border-left: 5px solid #3f51b5;
+  padding: 16px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.task-card:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}

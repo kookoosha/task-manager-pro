@@ -1,0 +1,26 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 16px; /* Отступы между ссылками */
+}
+
+nav a:first-child {
+  margin-left: 0; /* Убираем отступ для первой ссылки */
+}
+
+nav a:hover {
+  text-decoration: underline;
+}

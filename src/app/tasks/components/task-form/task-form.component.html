@@ -1,0 +1,41 @@
+<form [formGroup]="taskForm" (ngSubmit)="addTask()" class="task-form">
+  <!-- Task Title -->
+  <mat-form-field appearance="fill">
+    <mat-label>Task Title</mat-label>
+    <input matInput formControlName="title" placeholder="Enter task title" />
+    <mat-error *ngIf="taskForm.get('title')?.hasError('required') && taskForm.get('title')?.touched">
+      Title is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Task Description -->
+  <mat-form-field appearance="fill">
+    <mat-label>Task Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Enter task description"></textarea>
+  </mat-form-field>
+
+  <!-- Priority -->
+  <mat-form-field appearance="fill">
+    <mat-label>Priority</mat-label>
+    <mat-select formControlName="priority">
+      <mat-option value="low">Low</mat-option>
+      <mat-option value="medium">Medium</mat-option>
+      <mat-option value="high">High</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Status -->
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="todo">To Do</mat-option>
+      <mat-option value="in-progress">In Progress</mat-option>
+      <mat-option value="done">Done</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Add Task Button -->
+  <button mat-raised-button color="primary" type="submit" [disabled]="!taskForm.valid" class="task-submit">
+    Add Task
+  </button>
+</form>
